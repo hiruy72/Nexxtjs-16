@@ -1,4 +1,7 @@
 import Explorebtn from "@/components/Explorebtn";
+import EventCard from "@/components/EventCard";
+import {events} from "@/lib/constants";
+
 
 
 const Page = () => {
@@ -16,8 +19,11 @@ const Page = () => {
                     Featured Events
                 </h3>
                 <ul className="events">
-                    {[1,2,3,4,5].map((event)=>(
-                        <li key={event}>event {event}</li>
+                    {events.map((event)=>(
+                        <li key={event.title}>
+                            <EventCard {...event}/>
+                        </li>
+
                     ))}
                 </ul>
 
