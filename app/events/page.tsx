@@ -2,6 +2,9 @@ import { getEvents } from "@/lib/actions";
 import { Sparkles } from "lucide-react";
 import EventsList from "./EventsList";
 
+export const dynamic = "force-dynamic";
+
+
 export default async function EventsPage() {
     const events = await getEvents();
 

@@ -2,6 +2,9 @@ import { getEventBySlug } from "@/lib/actions";
 import EventDetailClient from "./EventDetailClient";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
+
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
