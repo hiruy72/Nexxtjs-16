@@ -8,7 +8,7 @@ export interface EventItem {
     time: string;
 }
 
-export const events: EventItem[] = [
+export const initialEvents: EventItem[] = [
     {
         title: "React Summit 2025",
         image: "/images/event1.png",
