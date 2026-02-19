@@ -1,12 +1,20 @@
 // lib/constants.ts
 export interface EventItem {
+    id?: number;
     title: string;
     image: string;
     slug: string;
     location: string;
     date: string;
     time: string;
+    category: string | null;
+    description?: string;
+    createdAt?: Date | string | null;
 }
+
+export const EVENT_CATEGORIES = ['All', 'Hackathon', 'Meetup', 'Conference', 'Workshop', 'Webinar', 'Bootcamp', 'Open Source', 'Design', 'AI', 'Networking'] as const;
+export type EventCategory = (typeof EVENT_CATEGORIES)[number];
+
 
 export const initialEvents: EventItem[] = [
     {
@@ -16,6 +24,7 @@ export const initialEvents: EventItem[] = [
         location: "Amsterdam, Netherlands",
         date: "2025-06-12",
         time: "09:00 AM",
+        category: "Conference",
     },
     {
         title: "Google I/O 2025",
@@ -24,6 +33,7 @@ export const initialEvents: EventItem[] = [
         location: "Mountain View, CA, USA",
         date: "2025-05-15",
         time: "10:00 AM",
+        category: "Conference",
     },
     {
         title: "AWS re:Invent 2025",
@@ -32,6 +42,7 @@ export const initialEvents: EventItem[] = [
         location: "Las Vegas, NV, USA",
         date: "2025-11-25",
         time: "08:00 AM",
+        category: "Conference",
     },
     {
         title: "Hack the North 2025",
@@ -40,6 +51,7 @@ export const initialEvents: EventItem[] = [
         location: "Waterloo, Canada",
         date: "2025-09-20",
         time: "10:00 AM",
+        category: "Hackathon",
     },
     {
         title: "JSConf EU 2025",
@@ -48,6 +60,7 @@ export const initialEvents: EventItem[] = [
         location: "Berlin, Germany",
         date: "2025-08-14",
         time: "09:30 AM",
+        category: "Conference",
     },
     {
         title: "PyCon 2025",
@@ -56,6 +69,7 @@ export const initialEvents: EventItem[] = [
         location: "Salt Lake City, UT, USA",
         date: "2025-04-10",
         time: "08:00 AM",
+        category: "Conference",
     },
     {
         title: "NodeConf EU 2025",
@@ -64,6 +78,7 @@ export const initialEvents: EventItem[] = [
         location: "Lisbon, Portugal",
         date: "2025-07-21",
         time: "09:00 AM",
+        category: "Conference",
     },
     {
         title: "GitHub Universe 2025",
@@ -72,6 +87,7 @@ export const initialEvents: EventItem[] = [
         location: "San Francisco, CA, USA",
         date: "2025-10-05",
         time: "10:00 AM",
+        category: "Conference",
     },
     {
         title: "DevFest 2025",
@@ -80,6 +96,7 @@ export const initialEvents: EventItem[] = [
         location: "Barcelona, Spain",
         date: "2025-09-10",
         time: "09:30 AM",
+        category: "Meetup",
     },
     {
         title: "Microsoft Build 2025",
@@ -88,6 +105,7 @@ export const initialEvents: EventItem[] = [
         location: "Seattle, WA, USA",
         date: "2025-05-22",
         time: "09:00 AM",
+        category: "Conference",
     },
     {
         title: "Flutter Engage 2025",
@@ -96,5 +114,7 @@ export const initialEvents: EventItem[] = [
         location: "Online",
         date: "2025-06-30",
         time: "11:00 AM",
+        category: "Webinar",
     },
 ];
+

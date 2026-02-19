@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { createEvent } from '@/lib/actions';
+import { EVENT_CATEGORIES } from '@/lib/constants';
 import { ArrowLeft, Send, MapPin, Calendar, Clock, Image as ImageIcon, AlignLeft, Type, Filter } from 'lucide-react';
 import Link from 'next/link';
 
@@ -82,11 +83,9 @@ const CreateEventPage = () => {
                                 required
                                 className="w-full bg-[#121212] border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary/50 transition-colors"
                             >
-                                <option value="General">General</option>
-                                <option value="Hackathon">Hackathon</option>
-                                <option value="Meetup">Meetup</option>
-                                <option value="Conference">Conference</option>
-                                <option value="Workshop">Workshop</option>
+                                {EVENT_CATEGORIES.filter(c => c !== 'All').map(cat => (
+                                    <option key={cat} value={cat}>{cat}</option>
+                                ))}
                             </select>
                         </div>
 

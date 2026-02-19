@@ -9,10 +9,12 @@ interface Props {
     location: string;
     date: string;
     time: string;
-    category?: string;
+    category?: string | null;
 }
 
-const EventCard = ({ title, image, slug, location, date, time, category = "General" }: Props) => {
+const EventCard = ({ title, image, slug, location, date, time, category }: Props) => {
+    const displayCategory = category || "General";
+
     return (
         <Link href={`/events/${slug}`} className="group block h-full">
             <div className="relative h-full flex flex-col overflow-hidden rounded-[2.5rem] bg-white/[0.02] border border-white/10 transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_40px_-10px_rgba(var(--primary-rgb),0.2)] hover:bg-white/[0.04]">
@@ -30,8 +32,9 @@ const EventCard = ({ title, image, slug, location, date, time, category = "Gener
                     <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 flex items-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                         <span className="text-[10px] font-black uppercase tracking-[0.15em] text-white">
-                            {category}
+                            {displayCategory}
                         </span>
+
                     </div>
                 </div>
 

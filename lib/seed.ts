@@ -2,12 +2,13 @@
 
 import { db } from './db';
 import { events } from './db/schema';
-import { initialEvents } from './constants';
+import { initialEvents, EVENT_CATEGORIES } from './constants';
 import { revalidatePath } from 'next/cache';
 
-const CATEGORIES = ['Hackathon', 'Meetup', 'Conference', 'Workshop'];
+const CATEGORIES = EVENT_CATEGORIES.filter(c => c !== 'All');
 
 export async function seedDatabase() {
+
     try {
         // Check if events already exist
         const existingEvents = await db.query.events.findMany();

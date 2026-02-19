@@ -6,16 +6,17 @@ import Link from 'next/link';
 import Explorebtn from "@/components/Explorebtn";
 import EventCard from "@/components/EventCard";
 import { Search, Filter, Sparkles } from 'lucide-react';
+import { EVENT_CATEGORIES, EventItem } from '@/lib/constants';
 
 interface HomeClientProps {
-    initialEvents: any[];
+    initialEvents: EventItem[];
 }
 
-const CATEGORIES = ['All', 'Hackathon', 'Meetup', 'Conference', 'Workshop'];
-
 const HomeClient = ({ initialEvents }: HomeClientProps) => {
+
     const [searchQuery, setSearchQuery] = useState('');
     const [activeCategory, setActiveCategory] = useState('All');
+
 
     const filteredEvents = useMemo(() => {
         return initialEvents.filter(event => {
@@ -96,13 +97,14 @@ const HomeClient = ({ initialEvents }: HomeClientProps) => {
 
                     <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar w-full md:w-auto">
                         <Filter size={16} className="text-light-200 shrink-0 mr-2" />
-                        {CATEGORIES.map((cat) => (
+                        {EVENT_CATEGORIES.map((cat) => (
+
                             <button
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
                                 className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all shrink-0 border ${activeCategory === cat
-                                        ? 'bg-primary text-black border-primary shadow-lg shadow-primary/20 scale-105'
-                                        : 'bg-white/5 text-light-200 border-white/10 hover:bg-white/10'
+                                    ? 'bg-primary text-black border-primary shadow-lg shadow-primary/20 scale-105'
+                                    : 'bg-white/5 text-light-200 border-white/10 hover:bg-white/10'
                                     }`}
                             >
                                 {cat}
